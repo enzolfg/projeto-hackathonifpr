@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-Sprint_0_conclu%C3%ADda-A6721E?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/status-Sprint_2_conclu%C3%ADda-A6721E?style=flat-square" alt="Status">
   <img src="https://img.shields.io/badge/metodologia-Kanban-2F6F68?style=flat-square" alt="Kanban">
   <img src="https://img.shields.io/badge/IFPR-Pinhais-14213D?style=flat-square" alt="IFPR Pinhais">
 </p>
@@ -20,8 +20,8 @@
   <a href="#-sobre">Sobre</a> ·
   <a href="#-funcionalidades">Funcionalidades</a> ·
   <a href="#-como-funciona">Como funciona</a> ·
-  <a href="#-rodando-na-sua-máquina">Rodar</a> ·
-  <a href="#-roadmap">Roadmap</a> ·
+  <a href="#️-rodando-na-sua-máquina">Rodar</a> ·
+  <a href="#️-roadmap">Roadmap</a> ·
   <a href="#-equipe">Equipe</a>
 </p>
 
@@ -56,6 +56,9 @@ O **HackFlow** nasceu para o 1º Hackathon do curso de Ciência da Computação 
 
 ## 🖼️ Telas
 
+<!--
+Quando tiverem os prints, salve em docs/img/ e remova estas marcas de comentário.
+
 <details>
 <summary><b>Clique para ver as telas</b></summary>
 <br>
@@ -65,8 +68,9 @@ O **HackFlow** nasceu para o 1º Hackathon do curso de Ciência da Computação 
 | <img src="docs/img/cadastro.png" width="260"> | <img src="docs/img/painel.png" width="260"> | <img src="docs/img/placar.png" width="260"> |
 
 </details>
+-->
 
-🎨 [Protótipo no Figma](Lhttps://www.figma.com/proto/QS1GKDNAEhnb1yGT2AE05r/HackFlow-%E2%80%93-IFPR-Campus-Pinhais?node-id=1-2&p=f&t=KCOmZhu1FK5gHDVr-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1) 
+🎨 [Protótipo no Figma](https://www.figma.com/proto/QS1GKDNAEhnb1yGT2AE05r/HackFlow-%E2%80%93-IFPR-Campus-Pinhais?node-id=1-2&p=f&t=KCOmZhu1FK5gHDVr-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
 
 ## 🧭 Como funciona
 
@@ -82,8 +86,8 @@ flowchart LR
 **Você precisa de:** JDK 21 · Maven 3.9+ · Node.js LTS · Git
 
 ```bash
-git clone https://github.com/enzolfg/Projeto_HackathonIF.git
-cd Projeto_HackathonIF
+git clone https://github.com/enzolfg/projeto-hackathonifpr.git
+cd projeto-hackathonifpr
 ```
 
 <table>
@@ -95,7 +99,7 @@ cd Projeto_HackathonIF
 <td>
 
 ```bash
-cd backend
+cd hackflow-backend
 mvn spring-boot:run
 ```
 
@@ -103,7 +107,7 @@ mvn spring-boot:run
 <td>
 
 ```bash
-cd frontend
+cd hackflow-frontend
 npm install
 npm run dev
 ```
@@ -132,10 +136,10 @@ Depois abra **http://localhost:5173** 🎉
 ## 📂 Estrutura
 
 ```
-Projeto_HackathonIF/
-├── 📁 backend/     API REST (Spring Boot)
-├── 📁 frontend/    Interface web (React + Vite)
-├── 📁 docs/        Escopo, kickoff e imagens
+projeto-hackathonifpr/
+├── 📁 hackflow-backend/     API REST (Spring Boot)
+├── 📁 hackflow-frontend/    Interface web (React + Vite)
+├── 📁 docs/                 Escopo, kickoff e imagens
 └── 📄 README.md
 ```
 
@@ -157,5 +161,75 @@ Projeto_HackathonIF/
 - [x] Protótipo de interface
 - [x] API com cadastro, login, projetos, notas e avisos
 - [x] Front-end integrado à API
+- [x] Sprint 2 concluída
 - [ ] Papéis de acesso (participante, jurado, comissão)
-- [
+- [ ] Validação de inscrição por CPF
+- [ ] Deploy para uso real no evento
+
+## 🎯 Contexto do projeto
+
+<details>
+<summary><b>👤 Stakeholder</b></summary>
+<br>
+
+**Comissão organizadora do Hackathon**: uma professora, um monitor da disciplina de ESI e dois representantes do projeto de extensão Azure DevOps do IFPR. Atua como cliente do sistema, mas não tem formação técnica nem tempo para desenvolver ferramentas próprias.
+
+</details>
+
+<details>
+<summary><b>⚠️ Restrições</b></summary>
+<br>
+
+| Restrição | Detalhe |
+|---|---|
+| 💰 Orçamento | Zero para ferramentas pagas |
+| ⏳ Prazo | Funcional até a Semana 19, uso real na Semana 20 |
+| 🧩 Simplicidade | A comissão tem pouco tempo para aprender o sistema |
+| 🔒 LGPD | Dados pessoais tratados com cuidado |
+
+</details>
+
+<details>
+<summary><b>🚫 Fora do escopo</b></summary>
+<br>
+
+- Pagamentos
+- Chat interno
+- App mobile nativo
+- Notificações push
+- Integração com redes sociais
+
+</details>
+
+## 🔄 Processo
+
+```mermaid
+flowchart LR
+  A[📥 Backlog] --> B["📝 A Fazer<br/>WIP 3"] --> C["🛠️ Em Progresso<br/>WIP 2"] --> D["🔍 Em Revisão<br/>WIP 2"] --> E[✅ Concluído]
+```
+
+Kanban no **GitHub Projects**, com alinhamento às segundas e quintas e revisão do quadro às sextas.
+
+## 📚 Documentação
+
+| Documento | Descrição |
+|---|---|
+| [Índice da documentação](docs/README.md) | Todos os documentos do projeto |
+| [Kickoff](docs/01-planejamento/kickoff-definicao-problema.pdf) | Problema e stakeholder |
+| [Escopo inicial](docs/01-planejamento/escopo-inicial-sprint0.pdf) | Escopo da Sprint 0 |
+| [README da API](hackflow-backend/README.md) | Endpoints e detalhes do back-end |
+
+## 👥 Equipe
+
+| Integrante |
+|---|
+| Enzo Leonardo Ferreira Gonçalves |
+| Evellin Silva Sebastião |
+| Henrique Gabriel da Silva |
+| Kauã Vinicius Silva Alves |
+
+---
+
+<p align="center">
+  <sub>Engenharia de Software I · Ciência da Computação · IFPR Campus Pinhais<br>Profa. Lauriana Paludo · Turma BCC.2</sub>
+</p>
