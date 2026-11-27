@@ -66,7 +66,7 @@ O **HackFlow** nasceu para o 1º Hackathon do curso de Ciência da Computação 
 
 </details>
 
-🎨 [Protótipo no Figma](COLE_AQUI) · 🧪 [Protótipo no Quant-UX](COLE_AQUI)
+🎨 [Protótipo no Figma](Lhttps://www.figma.com/proto/QS1GKDNAEhnb1yGT2AE05r/HackFlow-%E2%80%93-IFPR-Campus-Pinhais?node-id=1-2&p=f&t=KCOmZhu1FK5gHDVr-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1) 
 
 ## 🧭 Como funciona
 
