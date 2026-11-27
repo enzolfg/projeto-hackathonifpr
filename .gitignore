@@ -1,0 +1,8 @@
+﻿node_modules/
+dist/
+target/
+hackflow.db
+.env
+.idea/
+.vscode/
+*.log
