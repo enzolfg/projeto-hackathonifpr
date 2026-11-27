@@ -79,7 +79,7 @@ export default function TelaDeCadastro() {
 
       <Campo id="nome" name="nome" rotulo="Nome da equipe" placeholder="Ex.: Equipe Épsilon" maxLength={60} autoComplete="off" value={form.nome} onChange={atualizar} />
       <Campo id="resp" name="resp" rotulo="Nome do responsável" maxLength={80} autoComplete="name" value={form.resp} onChange={atualizar} />
-      <Campo id="email" name="email" rotulo="E-mail do responsável" type="email" placeholder="nome@ifpr.edu.br" maxLength={120} autoComplete="email" value={form.email} onChange={atualizar} />
+      <Campo id="email" name="email" rotulo="E-mail do responsável" type="email" placeholder="suamtricula@ifpr.edu.br" maxLength={120} autoComplete="email" value={form.email} onChange={atualizar} />
       <Campo id="senha" name="senha" rotulo="Senha" type="password" maxLength={72} autoComplete="new-password" value={form.senha} onChange={atualizar} />
       <small style={{ marginTop: 6 }}>Mínimo de 8 caracteres. Você vai usá-la para entrar no seu perfil.</small>
       <Campo id="confirmar" name="confirmar" rotulo="Confirmar senha" type="password" maxLength={72} autoComplete="new-password" value={form.confirmar} onChange={atualizar} />
