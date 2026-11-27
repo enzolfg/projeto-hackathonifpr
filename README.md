@@ -1,37 +1,114 @@
-<div align="center">
+<h1 align="center">🚀 HackFlow</h1>
 
-# 🚀 HackFlow
+<p align="center">Sistema de apoio à organização do 1º Hackathon do IFPR Campus Pinhais</p>
 
-**Sistema de apoio à organização do 1º Hackathon do curso**
-Ciência da Computação — IFPR, Campus Pinhais
+![Java 21](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5-6DB33F?logo=springboot&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
 
-![Status](https://img.shields.io/badge/status-Sprint%200%20conclu%C3%ADda-A6721E?style=for-the-badge)
-![Metodologia](https://img.shields.io/badge/metodologia-Kanban-2F6F68?style=for-the-badge)
-![Disciplina](https://img.shields.io/badge/engenharia%20de%20software-I-14213D?style=for-the-badge)
+Plataforma para apoiar o hackathon: inscrição de equipes, submissão de projetos,
+avaliação por jurados, placar público e central de avisos.
 
-[🎨 Ver protótipo da interface](https://www.figma.com/proto/QS1GKDNAEhnb1yGT2AE05r/HackFlow-%E2%80%93-IFPR-Campus-Pinhais?node-id=1-2&p=f&t=KCOmZhu1FK5gHDVr-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1) · [📋 Backlog](#️-backlog-inicial) · [🔄 Processo](#-processo-de-desenvolvimento)
+**Versão atual:** 0.1.0. Histórico em [CHANGELOG.md](CHANGELOG.md).
 
-</div>
+**Protótipo:** [Figma](Lhttps://www.figma.com/proto/QS1GKDNAEhnb1yGT2AE05r/HackFlow-%E2%80%93-IFPR-Campus-Pinhais?node-id=1-2&p=f&t=KCOmZhu1FK5gHDVr-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
 
----
+## Sumário
+- [O que a plataforma resolve](#o-que-a-plataforma-resolve)
+- [Requisitos](#requisitos)
+- [Comece em poucos minutos](#comece-em-poucos-minutos)
+- [Arquitetura](#arquitetura)
+- [Stack](#stack)
+- [Estrutura do repositório](#estrutura-do-repositório)
+- [Segurança](#segurança)
+- [Documentação](#documentação)
+- [Contexto do projeto](#contexto-do-projeto)
+- [Equipe](#equipe)
 
-## 📑 Sumário
+## O que a plataforma resolve
 
-- [Equipe](#-equipe)
-- [Contexto](#-contexto)
-- [Stakeholder](#-stakeholder)
-- [Restrições](#️-restrições)
-- [Protótipo de interface](#-protótipo-de-interface-gui)
-- [Escopo mínimo viável](#-escopo-mínimo-viável-primeira-versão)
-- [Fora do escopo](#-fora-do-escopo-desta-entrega)
-- [Backlog inicial](#️-backlog-inicial)
-- [Processo de desenvolvimento](#-processo-de-desenvolvimento)
-- [Próximos passos](#️-próximos-passos)
+| Momento | Recursos |
+|---|---|
+| Antes do evento | cadastro de equipes com bloqueio de e-mail duplicado, login |
+| Durante o evento | submissão de projeto (link https + descrição), central de avisos |
+| Avaliação | notas por critério: inovação, execução técnica, apresentação |
+| Encerramento | placar público com ranking |
 
----
+## Requisitos
 
-## 👥 Equipe
+- JDK 21, Maven 3.9+, Node.js LTS, Git
+- Navegador atualizado (Chrome, Edge ou Firefox)
 
+## Comece em poucos minutos
+
+```bash
+git clone https://github.com/enzolfg/Projeto_HackathonIF.git
+cd Projeto_HackathonIF
+```
+
+Terminal 1 (API em http://127.0.0.1:8080):
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+Terminal 2 (site em http://localhost:5173):
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+O banco `hackflow.db` é criado vazio na primeira execução. Para recomeçar do zero,
+pare a API e apague o arquivo.
+
+## Arquitetura
+
+```
+Navegador → React (Vite :5173) → proxy /api → Spring Boot (:8080) → SQLite
+```
+
+Na API: controle → serviço → repositório (JdbcTemplate).
+
+## Stack
+
+| Camada | Tecnologias |
+|---|---|
+| Front-end | React, Vite |
+| API | Java 21, Spring Boot 3.5, JDBC |
+| Dados | SQLite |
+| Segurança | BCrypt, sessão por cookie HttpOnly |
+
+## Estrutura do repositório
+
+```
+backend/    API REST (Spring Boot)
+frontend/   Interface web (React + Vite)
+docs/       Escopo inicial e kickoff do projeto
+```
+
+## Segurança
+
+- Senhas com hash BCrypt; cookie HttpOnly + SameSite=Strict
+- Limite de 5 tentativas de login em 15 minutos
+- SQL sempre parametrizado
+- **Pendente:** exigir login e papéis (jurado, comissão) nas rotas de escrita
+
+## Documentação
+
+| Documento | Descrição |
+|---|---|
+| [docs/escopo-inicial-sprint0.pdf](docs/escopo-inicial-sprint0.pdf) | Escopo inicial |
+| [docs/kickoff-definicao-problema.pdf](docs/kickoff-definicao-problema.pdf) | Problema e stakeholder |
+| [backend/README.md](backend/README.md) | Endpoints e detalhes da API |
+
+## Contexto do projeto
+(cole aqui Contexto, Stakeholder, Restrições, Escopo mínimo, Fora do escopo,
+Backlog e Processo de desenvolvimento do README atual)
+
+## Equipe
 | Integrante |
 |---|
 | Enzo Leonardo Ferreira Gonçalves |
@@ -39,110 +116,4 @@ Ciência da Computação — IFPR, Campus Pinhais
 | Henrique Gabriel da Silva |
 | Kauã Vinicius Silva Alves |
 
----
-
-## 📌 Contexto
-
-O campus está organizando seu 1º Hackathon institucional e ainda não possui um sistema próprio para apoiar o evento. Hoje, inscrição, submissão de projetos, avaliação dos jurados e divulgação de resultados dependem de planilhas e comunicação manual (e-mail/WhatsApp), o que já gerou:
-
-- 🔁 Inscrições duplicadas
-- ❗ Informações desencontradas entre participantes e comissão
-- 📢 Falta de um canal único de avisos durante o evento
-- 🐢 Avaliação dos jurados em papel, com apuração final demorada
-
----
-
-## 🎯 Stakeholder
-
-**Comissão organizadora do Hackathon** — uma professora, um monitor da disciplina de ESI e dois representantes do projeto de extensão Azure DevOps do IFPR. Atua como cliente do sistema: planeja, comunica e conduz o evento do início ao fim, mas não tem formação técnica nem tempo disponível para desenvolver ferramentas próprias.
-
-> **Outros públicos afetados:** equipes participantes do Hackathon, jurados, coordenação do curso e o público/comunidade acadêmica que acompanha o evento.
-
----
-
-## ⚠️ Restrições
-
-| Restrição | Detalhe |
-|---|---|
-| 💰 Orçamento | Zero para ferramentas pagas — o sistema é construído pela própria turma |
-| ⏳ Prazo | Funcional até a Semana 19, para uso real no evento na Semana 20 |
-| 🧩 Simplicidade | A comissão tem pouco tempo para aprender a operar o sistema |
-| 🔒 LGPD | O sistema trata dados pessoais de participantes e deve fazer isso com cuidado |
-| 👤 Usuários | Majoritariamente não técnicos — exige interface simples e direta |
-
----
-
-## 🖼️ Protótipo de interface (GUI)
-
-O protótipo navegável da interface foi desenvolvido no Quant-UX e pode ser acessado no link abaixo:
-
-<div align="center">
-
-### [🎨 Abrir protótipo interativo →] (https://www.figma.com/proto/QS1GKDNAEhnb1yGT2AE05r/HackFlow-%E2%80%93-IFPR-Campus-Pinhais?node-id=1-2&p=f&t=KCOmZhu1FK5gHDVr-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
-
-</div>
-
----
-
-## ✅ Escopo mínimo viável (primeira versão)
-
-1. **Cadastro de equipes/participantes** com validação automática de inscrição (detecção de e-mail/CPF duplicado, edição centralizada do próprio cadastro)
-2. **Submissão de projeto** pela equipe (link do repositório/arquivo + descrição), vinculada ao cadastro validado
-3. **Painel de avaliação para jurados**, com nota por critério definido pela comissão
-4. **Placar público (scoreboard)** com o andamento e o resultado das avaliações
-5. **Central de avisos**, com alertas automáticos e centralizados sobre mudanças do evento, visíveis a todos os usuários cadastrados
-
-## 🚫 Fora do escopo desta entrega
-
-- Pagamento ou qualquer cobrança dentro do sistema
-- Chat ou mensageria interna entre equipes, jurados e comissão
-- Aplicativo mobile nativo (a primeira versão é um site responsivo)
-- Notificações push nativas (os avisos ficam concentrados na central de avisos)
-- Matching automático de jurados por área de expertise
-- Integração com redes sociais
-
----
-
-## 🗂️ Backlog inicial
-
-<details open>
-<summary><strong>Ver épicos do backlog</strong></summary>
-
-1. Cadastro e autenticação de usuários (participante, jurado, admin)
-2. Validação automática de inscrição (bloqueio/alerta de duplicidade + edição centralizada)
-3. Submissão de projetos pelas equipes
-4. Painel de avaliação dos jurados
-5. Placar público (scoreboard) de resultados
-6. Central de avisos e alertas do evento
-7. Painel administrativo da comissão organizadora
-
-</details>
-
----
-
-## 🔄 Processo de desenvolvimento
-
-- **Framework:** Kanban, com fluxo contínuo (sem Sprints fixas)
-- **Cerimônias:** alinhamento rápido às segundas e quintas-feiras; revisão semanal do quadro às sextas-feiras, para avaliar gargalos e ajustar limites de WIP
-- **Quadro:** GitHub Projects, vinculado ao repositório do time:
-
-  `Backlog → A Fazer (WIP 3) → Em Progresso (WIP 2) → Em Revisão (WIP 2) → Concluído`
-
-> **Por que Kanban?** O projeto se encaixa como *Complicado tendendo a Complexo* no framework Cynefin — a tecnologia envolvida (cadastro, validação de dados, formulários web, painel de avaliação) é bem conhecida pela equipe, mas os requisitos ainda estão evoluindo (a comissão já trouxe duas necessidades novas na Semana 5: validação automática de inscrição e central de avisos). O Kanban absorve pedidos novos a qualquer momento, sem depender do fim de um ciclo fechado — diferente de Sprints fixas ou de um modelo em cascata.
-
----
-
-## ⏭️ Próximos passos
-
-- [ ] **Semana 6:** elicitar requisitos detalhados junto à comissão, a partir deste backlog inicial
-- [ ] Quebrar os épicos em user stories menores dentro do GitHub Projects
-- [ ] Confirmar critérios de aceite para a validação automática de inscrição e para a central de avisos
-
----
-
-<div align="center">
-
 **Engenharia de Software I** · Ciência da Computação · IFPR Campus Pinhais
-Profa. Lauriana Paludo · Turma BCC.2
-
-</div>
